@@ -32,10 +32,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        SetLocalizations()
+
     }
     override func viewWillAppear(_ animated: Bool) {
-        SetLocalizations()
+      //  SetLocalizations()
     }
     
     private func SetLocalizations(){
@@ -50,10 +51,10 @@ class ViewController: UIViewController {
         notificationsLabel.text         = "notifications".localized
     }
     
-    
-    @IBAction func ChangeLanguageBtn(_ sender: Any) {
-           }
-    
+    @IBAction func BackBtn(_ sender: Any) {
+        
+    }
+
     
     @IBAction func ChangeLang(_ sender: Any) {
         

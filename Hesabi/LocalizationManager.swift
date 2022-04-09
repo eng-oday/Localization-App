@@ -102,10 +102,10 @@ class LocalizationManager:NSObject {
         case .rightToLeft:
              semantic = .forceRightToLeft
         }
-        UIView.appearance().semanticContentAttribute = semantic
+        UIView.appearance().semanticContentAttribute            = semantic
+        UITabBar.appearance().semanticContentAttribute          = semantic
+        UINavigationBar.appearance().semanticContentAttribute   = semantic
         delegate?.resetApp()
-        
-  
     }
     
     func setAppInitLanguage(){
