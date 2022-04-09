@@ -13,10 +13,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+    
         guard let _ = (scene as? UIWindowScene) else { return }
+        LocalizationManager.shared.delegate = self
+        LocalizationManager.shared.setAppInitLanguage()
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -50,3 +51,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+
+extension SceneDelegate:LocalizationDelegate
+{
+    func resetApp() {
+        
+        guard let window = window else{return}
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        var vc : UIViewController
+        vc = sb.instantiateViewController(withIdentifier: "MyStoryBoard")
+        window.rootViewController = vc
+        let option:UIView.AnimationOptions = .transitionCrossDissolve
+        let duration:TimeInterval = 0.3
+        UIView.transition(with: window, duration: duration, options: option, animations: nil, completion: nil)
+        
+        
+    }
+    
+    
+}
